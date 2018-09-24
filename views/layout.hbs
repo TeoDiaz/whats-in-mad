@@ -13,7 +13,9 @@
     <a href="/">Home</a>
     <a href="/auth/login">Login</a>
     <a href="/auth/signup">Signup</a>
+    {{#if user}}
     <a href="/auth/logout">Logout</a>
+    {{/if}}
   </nav>
 
   {{{body}}}
