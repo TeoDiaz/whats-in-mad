@@ -1,7 +1,9 @@
+
+
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-
+    
     var map = new google.maps.Map(document.getElementById("map"), {
       center: {lat: -34.397, lng: 150.644},
       zoom: 10
@@ -15,10 +17,24 @@ document.addEventListener(
               lat: position.coords.latitude,
               lng: position.coords.longitude
           };
-    
-          infoWindow.setPosition(pos);
-          infoWindow.setContent('Location Found');
+          new google.maps.Marker({
+            position:pos,
+            map: map
+          });
+
           map.setCenter(pos);
+          
+          wifi.forEach(item => {
+            new google.maps.Marker({
+              position: {
+                lat: item.location.coordinates[0],
+                lng: item.location.coordinates[1]
+              },
+              map: map,
+              title: item.name
+            });
+          });
+          map.fitBounds(Marker);
       }, function() {
           handleLocationError(true, infoWindow, map.getCenter());
       });

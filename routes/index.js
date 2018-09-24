@@ -1,10 +1,16 @@
 const express = require('express');
 const router  = express.Router();
+const Wifi = require("../models/Wifi");
 
 /* GET home page */
 router.get('/', (req, res, next) => {
-  const user = (req.user) ? req.user:false;
-  res.render('index',{user});
+  Wifi.find().then(wifi => {
+    res.render('index', {
+      wifi,
+      wifiStr : JSON.stringify(wifi)
+    });
+  })
+  //console.log(Wifi.find({obj}))
 });
 
 module.exports = router;
