@@ -62,7 +62,7 @@ hbs.registerHelper('ifUndefined', (value, options) => {
 
 // default value for title 
 app.use((req,res,next) => {
-  app.locals.title = 'Express - Generated with IronGenerator';
+  app.locals.title = 'What is in Mad';
   app.locals.user = req.user;
   next();
 })

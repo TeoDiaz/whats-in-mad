@@ -2,9 +2,16 @@ const mongoose = require('mongoose');
 const Schema   = mongoose.Schema;
 
 const wifiSchema = new Schema({
-  name: String,
-  location: { type: { type: String }, coordinates: [Number] },
-  description: String
+  title: String,
+  location: {
+  latitude: Number,
+  longitude: Number,
+  },
+  organization: {
+  accesibility: String,
+  schedule: String,
+  services: String
+  }
 });
 
 
