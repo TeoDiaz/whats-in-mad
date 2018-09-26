@@ -1,0 +1,15 @@
+<div class="new-wifi">
+ <h2>Add a new Wifi</h2>
+  <form method="POST" action="/new">
+  {{!-- Dropdown menu --}}
+    <input  class="name-input"type="text" name="name" placeholder="name">
+      
+    {{!-- hidden lat lng pos when clicked on map --}}
+    <input id="lat-pos"  name="latitude">
+    <input id="lng-pos"  name="longitude">
+    <input class="btn btn-primary" type="submit" value="Add">
+  </form>
+  <div id="map"></div>
+</div>
+<script src="/javascripts/geolocalize.js"></script>
+

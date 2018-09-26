@@ -12,6 +12,9 @@ const wifiSchema = new Schema({
   schedule: String,
   services: String
   }
+},{
+  timestamps: true
+
 });
 
 

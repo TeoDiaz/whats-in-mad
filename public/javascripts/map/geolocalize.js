@@ -1,19 +1,18 @@
 let input = document.addEventListener(
   "DOMContentLoaded",
   () => {
-    //var startLatLng = new google.maps.LatLng(startLat, startLng);
-    var map = new google.maps.Map(document.getElementById("map"), {
+    let newMarkers = [];
+    let map = new google.maps.Map(document.getElementById("map"), {
       center: {
         lat: -34.397,
         lng: 150.644
       },
-      zoom: 10
+      zoom: 14
     });
-    var infoWindow = new google.maps.InfoWindow({
+    let infoWindow = new google.maps.InfoWindow({
       map: map
     });
     let pos;
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -32,10 +31,11 @@ let input = document.addEventListener(
             }
           };
           let circle;
-
+          let rad = $("#slide").val();
+          rad = parseInt(rad);
           map.setCenter(pos);
           //dibuja circulo
-          for (var city in citymap) {
+          for (let city in citymap) {
             // Add the circle for this city to the map.
             circle = new google.maps.Circle({
               strokeColor: "#FF0000",
@@ -45,26 +45,68 @@ let input = document.addEventListener(
               fillOpacity: 0.35,
               map: map,
               center: citymap[city].center,
-              radius: 1000
+              radius: rad
+
+
             });
           }
-
-          info.forEach(item => {
-            let itemPos = new google.maps.LatLng(item.location.latitude, item.location.longitude);
-            let myPos = new google.maps.LatLng(pos);
-            if (google.maps.geometry.spherical.computeDistanceBetween(myPos,itemPos) < circle.radius) {
-              new google.maps.Marker({
-                position: {
-                  lat: item.location.latitude,
-                  lng: item.location.longitude
-                },
-                map: map,
-                title: item.title
-              });
-            }
+          $("#slide").on("input change", function() {
+            rad = parseInt(this.value);
+            circle.setRadius(rad);
+            $(this)
+              .next($(".slider_label"))
+              .html(this.value);
+            removeMarkers();
+            printInfoMarkers();
+            changeZoom()
           });
 
-          map.fitBounds(Marker);
+          let printInfoMarkers = () => {
+            info.forEach(item => {
+              let itemPos = new google.maps.LatLng(
+                item.location.latitude,
+                item.location.longitude
+              );
+              let myPos = new google.maps.LatLng(pos);
+              if (
+                google.maps.geometry.spherical.computeDistanceBetween(
+                  myPos,
+                  itemPos
+                ) < circle.radius
+              ) {
+                marker = new google.maps.Marker({
+                  position: {
+                    lat: item.location.latitude,
+                    lng: item.location.longitude
+                  },
+                  map: map,
+                  title: item.title
+                });
+                newMarkers.push(marker);
+              }
+            });
+          };
+          printInfoMarkers();
+          let changeZoom = () =>{
+            if (rad > 500) {
+              map.setZoom(15);
+            }
+            if (rad > 700) {
+              map.setZoom(14);
+            }
+            if (rad > 1500) {
+              map.setZoom(13);
+            }
+            if (circle.radius > 2500) {
+              map.setZoom(12);
+            }
+          }
+          let removeMarkers = () => {
+            for (let i = 0; i < newMarkers.length; i++) {
+              newMarkers[i].setMap(null);
+            }
+          };
+
         },
         function() {
           handleLocationError(true, infoWindow, map.getCenter());
