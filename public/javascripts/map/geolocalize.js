@@ -2,14 +2,14 @@ let input = document.addEventListener(
   "DOMContentLoaded",
   () => {
     let newMarkers = [];
-    var map = new google.maps.Map(document.getElementById("map"), {
+    let map = new google.maps.Map(document.getElementById("map"), {
       center: {
         lat: -34.397,
         lng: 150.644
       },
       zoom: 14
     });
-    var infoWindow = new google.maps.InfoWindow({
+    let infoWindow = new google.maps.InfoWindow({
       map: map
     });
     let pos;
@@ -31,11 +31,11 @@ let input = document.addEventListener(
             }
           };
           let circle;
-          let rad = document.getElementById("slide").value;
+          let rad = $("#slide").val();
           rad = parseInt(rad);
           map.setCenter(pos);
           //dibuja circulo
-          for (var city in citymap) {
+          for (let city in citymap) {
             // Add the circle for this city to the map.
             circle = new google.maps.Circle({
               strokeColor: "#FF0000",
@@ -49,7 +49,6 @@ let input = document.addEventListener(
             });
           }
           $("#slide").on("input change", function() {
-            console.log(this.value);
             rad = parseInt(this.value);
             circle.setRadius(rad);
             $(this)
@@ -57,25 +56,7 @@ let input = document.addEventListener(
               .html(this.value);
             removeMarkers();
             printInfoMarkers();
-            if (rad < 600) {
-              map.setZoom(15);
-              console.log("este es el "+rad)
-            }
-            if (rad < 1000) {
-              map.setZoom(14);
-            }
-            if (rad > 1500) {
-              map.setZoom(13);
-            }
-            if (circle.radius > 2000) {
-              map.setZoom(12);
-            }
-            if (circle.radius > 2500) {
-              map.setZoom(11);
-            }
-            if (circle.radius > 3000) {
-              map.setZoom(10);
-            }
+            changeZoom()
           });
 
           let printInfoMarkers = () => {
@@ -104,7 +85,20 @@ let input = document.addEventListener(
             });
           };
           printInfoMarkers();
-
+          let changeZoom = () =>{
+            if (rad > 500) {
+              map.setZoom(15);
+            }
+            if (rad > 700) {
+              map.setZoom(14);
+            }
+            if (rad > 1500) {
+              map.setZoom(13);
+            }
+            if (circle.radius > 2500) {
+              map.setZoom(12);
+            }
+          }
           let removeMarkers = () => {
             for (let i = 0; i < newMarkers.length; i++) {
               newMarkers[i].setMap(null);
