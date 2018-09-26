@@ -45,14 +45,14 @@ let input = document.addEventListener(
               fillOpacity: 0.35,
               map: map,
               center: citymap[city].center,
-              radius: 2000
+              radius: 1000
             });
           }
 
           info.forEach(item => {
             let itemPos = new google.maps.LatLng(item.location.latitude, item.location.longitude);
             let myPos = new google.maps.LatLng(pos);
-            if (google.maps.geometry.spherical.computeDistanceBetween(myPos,itemPos) < 2000) {
+            if (google.maps.geometry.spherical.computeDistanceBetween(myPos,itemPos) < circle.radius) {
               new google.maps.Marker({
                 position: {
                   lat: item.location.latitude,
