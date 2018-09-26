@@ -1,19 +1,17 @@
 let input = document.addEventListener(
   "DOMContentLoaded",
   () => {
-    //var startLatLng = new google.maps.LatLng(startLat, startLng);
     var map = new google.maps.Map(document.getElementById("map"), {
       center: {
         lat: -34.397,
         lng: 150.644
       },
-      zoom: 10
+      zoom: 14
     });
     var infoWindow = new google.maps.InfoWindow({
       map: map
     });
     let pos;
-    // Try HTML5 geolocation.
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function(position) {
@@ -32,7 +30,8 @@ let input = document.addEventListener(
             }
           };
           let circle;
-
+          let rad = document.getElementById("slide").value;
+          rad = parseInt(rad);
           map.setCenter(pos);
           //dibuja circulo
           for (var city in citymap) {
@@ -45,14 +44,36 @@ let input = document.addEventListener(
               fillOpacity: 0.35,
               map: map,
               center: citymap[city].center,
-              radius: 1000
+              radius: rad
             });
           }
-
+          $('#slide').on('input change', function(){
+            console.log(this.value)
+            rad = parseInt(this.value)
+            circle.setRadius(rad)
+            $(this).next($('.slider_label')).html(this.value);
+            
+            printInfoMarkers()
+          });
+          // document.getElementById("slide").onchange = function() {
+          //     circle.setRadius(rad);
+          //     console.log(parseInt(rad))
+          //   }
+          
+          
+          let printInfoMarkers = ()=>{
           info.forEach(item => {
-            let itemPos = new google.maps.LatLng(item.location.latitude, item.location.longitude);
+            let itemPos = new google.maps.LatLng(
+              item.location.latitude,
+              item.location.longitude
+            );
             let myPos = new google.maps.LatLng(pos);
-            if (google.maps.geometry.spherical.computeDistanceBetween(myPos,itemPos) < 1000) {
+            if (
+              google.maps.geometry.spherical.computeDistanceBetween(
+                myPos,
+                itemPos
+              ) < circle.radius
+            ) {
               new google.maps.Marker({
                 position: {
                   lat: item.location.latitude,
@@ -63,8 +84,10 @@ let input = document.addEventListener(
               });
             }
           });
+        }
+        printInfoMarkers()
 
-          map.fitBounds(Marker);
+
         },
         function() {
           handleLocationError(true, infoWindow, map.getCenter());
