@@ -10,9 +10,9 @@
 blabla
 
 ## Herramientas
-JavaScript (Base)
-Mongoose
-Axios/Ajax  
+JavaScript (Base)  
+Mongoose  
+Axios/Ajax    
 Materialize   
 jQuery
 Gmaps API
