@@ -25,7 +25,7 @@ router.get("/home", (req, res, next) => {
 
 router.get("/", (req, res, next) => {
   syncDB()
-  res.render("frontpage");
+  res.render("frontpage", {layout: false});
 })
 
 router.get("/userwifi", (req, res, next) => {
@@ -57,10 +57,7 @@ router.post("/new", (req, res, next) => {
   }
   userWifi.create(newWifi)
     .then(()=> {
-  
         res.redirect("/home");
-        console.log("aahahahahahahaha")
-
       })
       .catch(e => console.log(e));
     

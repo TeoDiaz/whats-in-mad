@@ -1,25 +1,47 @@
+<body class="cyan loaded">
+  <!-- Start Page Loading -->
+  <div id="loader-wrapper">
+      <div id="loader"></div>        
+      <div class="loader-section section-left"></div>
+      <div class="loader-section section-right"></div>
+  </div>
+  <!-- End Page Loading -->
 
-<h2>Login</h2>
 
-<form action="/auth/login" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="JonSnow">
 
-  <br><br>
+  <div id="login-page" class="row row-first">
+    <div class="col s12 z-depth-4 card-panel">
+      <form class="login-form" action="/auth/login" method="POST">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="/images/logomadsinfondo.png" alt="" class="circle responsive-img valign profile-image-login">
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-social-person-outline prefix"></i>
+            <input id="username" type="text">
+            <label for="username" class="center-align">Username</label>
+          </div>
+        </div>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="mdi-action-lock-outline prefix"></i>
+            <input id="password" type="password">
+            <label for="password">Password</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <a type="button" class="btn waves-effect waves-light col s12">Login</a>
+          </div>
+        </div>         
+        </div>
 
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Your password">
-  <br>
-  {{#if message }}
-    <div class="error-message">{{ message }}</div>
-  {{/if}}
+      </form>
+    </div>
+  </div>
 
-  <br><br>
 
-  <button>Login</button>
 
-  <p class="account-message">
-    Don't have an account yet?
-    <a href="/auth/signup">Signup</a>
-  </p>
-</form>
+<div class="hiddendiv common"></div></body>

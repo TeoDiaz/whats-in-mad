@@ -3,7 +3,8 @@
   padding: 0; }
 
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 100%; }
 
 #map {
   margin: 3% auto;
@@ -37,7 +38,7 @@ body {
   margin-top: 10%; }
 
 .img-logo img {
-  width: 40%;
+  width: 37%;
   margin-top: 21%;
   margin-left: -17%; }
 
@@ -46,15 +47,22 @@ h2 {
   color: black;
   width: 56%;
   margin-left: 30%;
-  margin-top: -31%;
+  margin-top: -25%;
   text-align: center;
   font-size: 2vw; }
 
 .connec {
   font-weight: bolder; }
 
+.card-panel {
+  height: 70vh; }
+
+.row-first {
+  width: 28%;
+  margin-top: 4%; }
+
 .click {
-  margin-left: 52%;
+  margin-left: 35%;
   margin-top: 2%;
   position: absolute;
   font-size: 235%;
@@ -68,6 +76,17 @@ h2 {
   animation-play-state: paused;
   color: red; }
 
+img {
+  width: 50%; }
+
+.logo-login {
+  width: 20%;
+  margin-top: 32%;
+  margin-left: 27%; }
+
+.cyan {
+  background-color: #00bfd46e !important; }
+
 .wifi-symbol {
   display: none; }
   .wifi-symbol [foo], .wifi-symbol {
@@ -75,10 +94,10 @@ h2 {
     position: absolute;
     top: 50%;
     display: inline-block;
-    margin-left: 103%;
-    width: 150px;
-    height: 150px;
-    margin-top: -257.5px;
+    margin-left: 70%;
+    width: 200px;
+    height: 200px;
+    margin-top: -210px;
     -ms-transform: rotate(-45deg) translate(-100px);
     -moz-transform: rotate(-45deg) translate(-100px);
     -o-transform: rotate(-45deg) translate(-100px);
@@ -90,7 +109,7 @@ h2 {
     display: block;
     width: 100%;
     height: 100%;
-    font-size: 21.42857px;
+    font-size: 28.57143px;
     position: absolute;
     bottom: 0;
     left: 0;

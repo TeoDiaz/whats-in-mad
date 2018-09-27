@@ -7,37 +7,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw"
     crossorigin="anonymous">
-  <link rel="stylesheet" href="/stylesheets/style.css" />
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-P4PlzQpJlQziEfMbyB0v2lWgv2mncBo&libraries=geometry,places"></script>
   <script src="/javascripts/map/geoMadrid.js"></script>
   <script src="/javascripts/map/geoUsers.js"></script>
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
-  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    {{#if user}}
-    <a class="nav-item nav-link" href="/new">Add new Wifi</a>
-    <a href="/auth/logout">Logout</a>
-    {{else}}
-    <a href="/home">Home</a>
-    <a href="/auth/login">Login</a>
-    <a href="/auth/signup">Signup</a>
-    {{/if}}
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/home">Home</a></li>
+         {{#if user}}
+        <li><a href="/new">Create New Wifi</a></li>
+        <li><a href="/userswifi">Users Wifis</a></li>
+        <li><a href="/auth/logout">Log Out</a></li>
+        {{else}}
+        <li><a href="/auth/login">Log In</a></li>
+        <li><a href="/auth/signup">Sign Up</a></li>
+        {{/if}}
+      </ul>
+      {{!-- <img src="/images/logomad.png" class="logo-login" alt=""> --}}
+    </div>
   </nav>
+
   {{{body}}}
-
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-</body>
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
   crossorigin="anonymous"></script>
-
+  
+</body>
 </html>

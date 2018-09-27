@@ -5,6 +5,7 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 100%;
 }
 #map {
   margin: 3% auto;
@@ -28,8 +29,8 @@ body {
   height: 100vh;
 }
 
-.index-back{
-  background-color:#c6c3c375;
+.index-back {
+  background-color: #c6c3c375;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -42,7 +43,7 @@ body {
 }
 
 .img-logo img {
-  width: 40%;
+  width: 37%;
   margin-top: 21%;
   margin-left: -17%;
 }
@@ -52,16 +53,22 @@ h2 {
   color: black;
   width: 56%;
   margin-left: 30%;
-  margin-top: -31%;
+  margin-top: -25%;
   text-align: center;
   font-size: 2vw;
 }
 .connec {
   font-weight: bolder;
 }
-
+.card-panel{
+  height: 70vh;
+}
+.row-first{
+  width: 28%;
+  margin-top: 4%;
+}
 .click {
-  margin-left: 52%;
+  margin-left: 35%;
   margin-top: 2%;
   position: absolute;
   font-size: 235%;
@@ -75,13 +82,24 @@ h2 {
   animation-play-state: paused;
   color: red;
 }
+img {
+  width: 50%;
+}
 
+.logo-login {
+  width: 20%;
+  margin-top: 32%;
+  margin-left: 27%;
+}
 
+.cyan {
+  background-color: #00bfd46e !important;
+}
 
 .wifi-symbol {
   display: none;
   $circleColor: black;
-  $size: 150px;
+  $size: 200px;
 
   [foo],
   & {
@@ -89,10 +107,10 @@ h2 {
     position: absolute;
     top: 50%;
     display: inline-block;
-    margin-left: 103%;
+    margin-left: 70%;
     width: $size;
     height: $size;
-    margin-top: 0 - 220 - $size * 0.25;
+    margin-top: 0 - 160 - $size * 0.25;
 
     -ms-transform: rotate(-45deg) translate(-100px);
     -moz-transform: rotate(-45deg) translate(-100px);
@@ -195,7 +213,3 @@ h2 {
     opactiy: 0.1;
   }
 }
-
-
-
-
