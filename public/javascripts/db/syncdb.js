@@ -4,11 +4,9 @@ const Wifi = require("../../../models/Wifi");
 
 const syncDB = () => {
   let now = moment();
-  if (!Wifi.find().then(() => {
-      updateOrCreateDB();
-
-    })) {
-
+  if (!Wifi.find()) {
+    updateOrCreateDB();
+  } 
     Wifi.find().then(info => {
         if (moment(info[0].createdAt) < now.subtract(12, 'h')) {
           updateOrCreateDB();
@@ -17,10 +15,11 @@ const syncDB = () => {
       })
       .catch(e => console.log(e))
   }
-}
+
 
 
 const updateOrCreateDB = () => {
+  Wifi.collection.drop().catch(e => console.log(e))
   axios
     .get("https://datos.madrid.es/egob/catalogo/216619-0-wifi-municipal.json")
     .then(info => {
@@ -37,10 +36,8 @@ const updateOrCreateDB = () => {
             services: e.organization.services
           }
         });
-        Wifi.collection.drop();
         info
           .save()
-          .then(res => {})
           .catch(err => {
             console.log(err);
           });

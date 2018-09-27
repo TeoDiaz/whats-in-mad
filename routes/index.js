@@ -19,10 +19,11 @@ router.get("/home", (req, res, next) => {
           data,
           dataStr: JSON.stringify(data)
         })
-        .catch(e => console.log(e));
-    })
+      })
+      .catch(e => console.log(e));
 
   })
+  .catch(e => console.log(e))
 
 });
 
@@ -47,7 +48,7 @@ router.post("/new", (req, res, next) => {
     }
   }
   userWifi.create(newWifi)
-    .then(userwifiCreated => {
+    .then(()=> {
       res.redirect("/");
     })
     .catch(e => console.log(e));
