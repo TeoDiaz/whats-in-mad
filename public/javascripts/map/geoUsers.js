@@ -89,7 +89,6 @@ document.addEventListener(
                   icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
                 });
                 newUserMarkers.push(userMarker);
-                console.log("pasan users")
               }
             });
           };

@@ -1,29 +1,35 @@
+<div class="container2">
+  <div class="row2">
+    <img src="/images/logomadsinfondo.png" alt="" class="circle responsive-img valign profile-image-login img-signup">
 
-<h2>Signup</h2>
-
-<form action="/auth/signup" method="POST" id="form-container">
-  <label for="username">Username</label>
-  <input id="username" type="text" name="username" placeholder="Username">
-
-  <br><br>
-
-  <label for="password">Password</label>
-  <input id="password" type="password" name="password" placeholder="Password">
-  <br><br>
-
-  <label for="email">Email</label>
-  <input id="email" type="email" name="email" placeholder="Email@email.com">
-
-  {{#if message }}
-  <div class="error-message">{{ message }}</div>
-  {{/if}}
-
-  <br><br>
-
-  <button>Create account</button>
-
-  <p class="account-message">
-    Do you already have an account?
-    <a href="/auth/login">Login</a>
-  </p>
-</form>
+    <h3>Join Us To Keep The Wifi Free</h3>
+    <form class="col s12" id="reg-form" action="/auth/signup" method="post">
+      <div class="row2">
+        <div class="input-field col s6">
+          <input name="username" id="first_name" type="text" class="validate" required>
+          <label for="first_name">Name</label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="input-field col s12">
+          <input name="email" id="email" type="email" class="validate" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="input-field col s12">
+          <input name="password" id="password" type="password" class="validate" minlength="4" required>
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row2">
+        <div class="input-field col s6">
+          <button class="btn btn-large btn-register waves-effect waves-light" type="submit">Register
+            <i class="material-icons right">done</i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <a href="/auth/login" title="Login" class="ngl btn-floating btn-large waves-effect waves-light red"><i class="material-icons">input</i></a>
+</div>

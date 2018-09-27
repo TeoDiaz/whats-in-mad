@@ -29,13 +29,13 @@ router.post("/signup", (req, res, next) => {
   const email = req.body.email;
 
   if (username === "" || password === "" || email === "") {
-    res.render("auth/signup", { message: "Indicate username and password" });
+    res.render("auth/signup", { error: "Indicate username and password" });
     return;
   }
 
   User.findOne({ username }, "username", (err, user) => {
     if (user !== null) {
-      res.render("auth/signup", { message: "The username already exists" });
+      res.render("auth/signup", { error: "The username already exists" });
       return;
     }
 
@@ -50,10 +50,10 @@ router.post("/signup", (req, res, next) => {
 
     newUser.save()
     .then(() => {
-      res.redirect("/");
+      res.redirect("/home");
     })
     .catch(err => {
-      res.render("auth/signup", { message: "Something went wrong" });
+      res.render("auth/signup", { error: "Something went wrong" });
     })
   });
 });

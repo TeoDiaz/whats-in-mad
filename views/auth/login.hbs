@@ -1,14 +1,9 @@
 <body class="cyan loaded">
-  <!-- Start Page Loading -->
   <div id="loader-wrapper">
       <div id="loader"></div>        
       <div class="loader-section section-left"></div>
       <div class="loader-section section-right"></div>
   </div>
-  <!-- End Page Loading -->
-
-
-
   <div id="login-page" class="row row-first">
     <div class="col s12 z-depth-4 card-panel">
       <form class="login-form" action="/auth/login" method="POST">
@@ -20,24 +15,28 @@
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-social-person-outline prefix"></i>
-            <input id="username" type="text">
+            <input name="username" id="username" type="text">
             <label for="username" class="center-align">Username</label>
           </div>
         </div>
         <div class="row margin">
           <div class="input-field col s12">
             <i class="mdi-action-lock-outline prefix"></i>
-            <input id="password" type="password">
+            <input name="password" id="password" type="password">
             <label for="password">Password</label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
-            <a type="button" class="btn waves-effect waves-light col s12">Login</a>
+            <button class="btn btn-large btn-register waves-effect waves-light" type="submit">Log In
+            <i class="material-icons right">done</i>
+          </button>
           </div>
         </div>         
         </div>
-
+{{#if error}}
+  <div>{{ error }}</div>
+{{/if}}
       </form>
     </div>
   </div>

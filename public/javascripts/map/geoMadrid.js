@@ -85,7 +85,6 @@ document.addEventListener(
                   title: item.title
                 });
                 newMarkers.push(marker);
-                console.log("pasan originales")
               }
             });
           };
