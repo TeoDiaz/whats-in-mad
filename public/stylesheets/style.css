@@ -21,7 +21,9 @@ body {
   margin-left: 17%; }
 
 .a-users {
-  margin-left: 10%; }
+  margin-left: -14%;
+  text-decoration: none;
+  color: #ed6e73; }
 
 .button-new {
   display: flex;
