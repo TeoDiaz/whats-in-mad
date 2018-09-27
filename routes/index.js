@@ -28,6 +28,7 @@ router.get("/home", (req, res, next) => {
 
 router.get("/", (req, res, next) => {
   syncDB()
+  res.render("frontpage");
 })
 
 
