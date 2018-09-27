@@ -4,7 +4,7 @@ const Wifi = require("../models/Wifi");
 const userWifi = require("../models/UserWifi");
 const axios = require("axios");
 const moment = require("moment");
-const syncDB = require("../public/javascripts/syncdb")
+const syncDB = require("../public/javascripts/db/syncdb")
 
 /* GET home page */
 router.get("/", (req, res, next) => {
