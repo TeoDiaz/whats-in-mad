@@ -1,7 +1,13 @@
 let input = document.addEventListener(
   "DOMContentLoaded",
   () => {
+    let marker;
     let newMarkers = [];
+    const setPosOnForm = (latlng) => {
+      document.getElementById('lat-pos').value = latlng.lat;
+      document.getElementById('lng-pos').value = latlng.lng;
+    }
+
     let map = new google.maps.Map(document.getElementById("map"), {
       center: {
         lat: -34.397,
@@ -13,9 +19,10 @@ let input = document.addEventListener(
       map: map
     });
     let pos;
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        function(position) {
+        function (position) {
           pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -46,9 +53,11 @@ let input = document.addEventListener(
               map: map,
               center: citymap[city].center,
               radius: rad
+
+
             });
           }
-          $("#slide").on("input change", function() {
+          $("#slide").on("input change", function () {
             rad = parseInt(this.value);
             circle.setRadius(rad);
             $(this)
@@ -60,6 +69,7 @@ let input = document.addEventListener(
           });
 
           let printInfoMarkers = () => {
+
             info.forEach(item => {
               let itemPos = new google.maps.LatLng(
                 item.location.latitude,
@@ -85,7 +95,7 @@ let input = document.addEventListener(
             });
           };
           printInfoMarkers();
-          let changeZoom = () =>{
+          let changeZoom = () => {
             if (rad > 500) {
               map.setZoom(15);
             }
@@ -106,7 +116,7 @@ let input = document.addEventListener(
           };
 
         },
-        function() {
+        function () {
           handleLocationError(true, infoWindow, map.getCenter());
         }
       );
@@ -115,14 +125,8 @@ let input = document.addEventListener(
       handleLocationError(false, infoWindow, map.getCenter());
     }
 
-    function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-      infoWindow.setPosition(pos);
-      infoWindow.setContent(
-        browserHasGeolocation
-          ? "Error: The Geolocation service failed."
-          : "Error: Your browser doesn't support geolocation."
-      );
-    }
+  
+
   },
   false
 );
