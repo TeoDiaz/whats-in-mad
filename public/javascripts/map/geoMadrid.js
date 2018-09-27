@@ -1,12 +1,9 @@
-let input = document.addEventListener(
+document.addEventListener(
   "DOMContentLoaded",
   () => {
     let marker;
     let newMarkers = [];
-    const setPosOnForm = (latlng) => {
-      document.getElementById('lat-pos').value = latlng.lat;
-      document.getElementById('lng-pos').value = latlng.lng;
-    }
+
 
     let map = new google.maps.Map(document.getElementById("map"), {
       center: {
@@ -15,11 +12,12 @@ let input = document.addEventListener(
       },
       zoom: 14
     });
+
     let infoWindow = new google.maps.InfoWindow({
       map: map
     });
     let pos;
-    
+
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         function (position) {
@@ -33,8 +31,7 @@ let input = document.addEventListener(
           });
           var citymap = {
             madrid: {
-              center: pos,
-              population: 3293000
+              center: pos
             }
           };
           let circle;
@@ -91,6 +88,7 @@ let input = document.addEventListener(
                   title: item.title
                 });
                 newMarkers.push(marker);
+                console.log("pasan originales")
               }
             });
           };
@@ -125,7 +123,7 @@ let input = document.addEventListener(
       handleLocationError(false, infoWindow, map.getCenter());
     }
 
-  
+
 
   },
   false

@@ -10,6 +10,11 @@ body {
   height: 400px;
   width: 600px; }
 
+#map-user {
+  margin: 5% auto;
+  height: 400px;
+  width: 600px; }
+
 .navbar-brand a {
   color: #00b7ff; }
 

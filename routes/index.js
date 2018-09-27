@@ -16,8 +16,6 @@ router.get("/home", (req, res, next) => {
           user: req.user,
           info,
           infoStr: JSON.stringify(info),
-          data,
-          dataStr: JSON.stringify(data)
         })
       })
       .catch(e => console.log(e));
@@ -32,6 +30,17 @@ router.get("/", (req, res, next) => {
   res.render("frontpage");
 })
 
+router.get("/userwifi", (req, res, next) => {
+  userWifi.find().then(userwifi => {
+    res.render("userswifi", {
+      user: req.user,
+      userwifi,
+      userWifiStr: JSON.stringify(userwifi)
+
+    })
+  }).catch(e => console.log(e))
+})
+
 
 router.get("/new", (req, res, next) => {
   res.render("new", {
@@ -42,6 +51,7 @@ router.get("/new", (req, res, next) => {
 router.post("/new", (req, res, next) => {
   let newWifi = {
     title: req.body.name,
+    by: req.user.username,
     location: {
       latitude: req.body.latitude,
       longitude: req.body.longitude
@@ -49,9 +59,11 @@ router.post("/new", (req, res, next) => {
   }
   userWifi.create(newWifi)
     .then(()=> {
-      res.redirect("/");
-    })
-    .catch(e => console.log(e));
+  
+        res.redirect("/");
 
-})
+      })
+      .catch(e => console.log(e));
+    })
+  
 module.exports = router;

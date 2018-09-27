@@ -3,10 +3,12 @@ const Schema   = mongoose.Schema;
 
 const userWifiSchema = new Schema({
   title: String,
-  location: {
+  by: String,
+  location: { 
   latitude: Number,
   longitude: Number,
-  }
+  },
+
 },{
   timestamps: true
 
