@@ -8,28 +8,37 @@ const syncDB = require("../public/javascripts/db/syncdb");
 
 /* GET home page */
 router.get("/home", (req, res, next) => {
-  Wifi.find()
-    .then(info => {
-      userWifi
-        .find()
-        .then(data => {
-          syncDB();
-          res.render("index", {
-            user: req.user,
-            info,
-            infoStr: JSON.stringify(info),
-            
-          });
+  Wifi.find().then(info => {
+    userWifi.find().then(data => {
+      syncDB();
+      res
+        .render("index", {
+          user: req.user,
+          info,
+          infoStr: JSON.stringify(info),
         })
         .catch(e => console.log(e));
     })
     .catch(e => console.log(e));
 });
+})
 
 router.get("/", (req, res, next) => {
-  syncDB();
-  res.render("frontpage",{layout: false });
-});
+  syncDB()
+  res.render("frontpage");
+})
+
+router.get("/userwifi", (req, res, next) => {
+  userWifi.find().then(userwifi => {
+    res.render("userswifi", {
+      user: req.user,
+      userwifi,
+      userWifiStr: JSON.stringify(userwifi)
+
+    })
+  }).catch(e => console.log(e))
+})
+
 
 router.get("/new", (req, res, next) => {
   res.render("new", {
@@ -40,16 +49,21 @@ router.get("/new", (req, res, next) => {
 router.post("/new", (req, res, next) => {
   let newWifi = {
     title: req.body.name,
+    by: req.user.username,
     location: {
       latitude: req.body.latitude,
       longitude: req.body.longitude
     }
-  };
-  userWifi
-    .create(newWifi)
-    .then(() => {
-      res.redirect("/");
+  }
+  userWifi.create(newWifi)
+    .then(()=> {
+  
+        res.redirect("/home");
+        console.log("aahahahahahahaha")
+
+      })
+      .catch(e => console.log(e));
+    
     })
-    .catch(e => console.log(e));
-});
+
 module.exports = router;
