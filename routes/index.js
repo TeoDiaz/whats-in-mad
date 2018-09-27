@@ -29,13 +29,12 @@ router.get("/", (req, res, next) => {
   res.render("frontpage", {layout: false});
 })
 
-router.get("/userwifi", ensureLoggedIn('/auth/login'), (req, res, next) => {
+router.get("/userswifi", ensureLoggedIn('/auth/login'), (req, res, next) => {
   userWifi.find().then(userwifi => {
     res.render("userswifi", {
       user: req.user,
       userwifi,
       userWifiStr: JSON.stringify(userwifi)
-
     })
   }).catch(e => console.log(e))
 })
