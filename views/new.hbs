@@ -2,12 +2,13 @@
   <form method="POST" action="/new">
   <h3>Did you find a new Wifi?</h3>
     <h3>Help Users: Point it on the map and add the new Wifi to our Data Base</h3>
-    <input  class="name-input"type="text" name="name" placeholder="name">
+    <input  id="new-input"type="text" name="name" placeholder="name" required>
       
-    <input type="hidden" id="lat-pos"  name="latitude">
-    <input type="hidden" id="lng-pos"  name="longitude">
-    <input class="btn btn-primary" type="submit" value="Add">
+    <input type="hidden" id="lat-pos"  name="latitude" required>
+    <input type="hidden" id="lng-pos"  name="longitude" required>
+    <input class="btn btn-primary button-new" type="submit" value="Add Wifi">
   </form>
+
   <div id="map-user"></div>
 </div>
 <script src="/javascripts/map/markers.js"></script>
