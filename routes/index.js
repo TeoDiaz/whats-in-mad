@@ -7,33 +7,49 @@ const moment = require("moment");
 const syncDB = require("../public/javascripts/db/syncdb")
 
 /* GET home page */
-router.get("/", (req, res, next) => {
-  Wifi.find().then(info=>{
-  syncDB();
-  res
-    .render("index", { user: req.user, info, infoStr: JSON.stringify(info) })
-    .catch(e => console.log(e));
+router.get("/home", (req, res, next) => {
+  Wifi.find().then(info => {
+    userWifi.find().then(data => {
+      syncDB();
+      res
+        .render("index", {
+          user: req.user,
+          info,
+          infoStr: JSON.stringify(info),
+          data,
+          dataStr: JSON.stringify(data)
+        })
+        .catch(e => console.log(e));
+    })
+
   })
+
 });
 
- 
-router.get("/new", (req, res, next) => {
-  res.render("new", {user: req.user});
- })
+router.get("/", (req, res, next) => {
+  syncDB()
+})
 
- router.post("/new",(req, res, next) => {
+
+router.get("/new", (req, res, next) => {
+  res.render("new", {
+    user: req.user
+  });
+})
+
+router.post("/new", (req, res, next) => {
   let newWifi = {
-   title : req.body.name,
-   location : {
-    latitude: 3,
-    longitude: 3
-   }
+    title: req.body.name,
+    location: {
+      latitude: req.body.latitude,
+      longitude: req.body.longitude
+    }
   }
   userWifi.create(newWifi)
-  .then(userwifiCreated =>{
-   res.redirect("/");
-  })
-  .catch(e => console.log(e));
+    .then(userwifiCreated => {
+      res.redirect("/");
+    })
+    .catch(e => console.log(e));
 
- })
+})
 module.exports = router;

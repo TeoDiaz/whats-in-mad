@@ -4,19 +4,21 @@ const Wifi = require("../../../models/Wifi");
 
 const syncDB = () => {
   let now = moment();
-  if (Wifi.find()) {
-    updateOrCreateDB();
+  if (!Wifi.find().then(() => {
+      updateOrCreateDB();
+
+    })) {
 
     Wifi.find().then(info => {
-      if (moment(info[0].createdAt) < now.subtract(12, 'h')) {
-        updateOrCreateDB();
-      }
-    })
-  } else {
-    updateOrCreateDB();
+        if (moment(info[0].createdAt) < now.subtract(12, 'h')) {
+          updateOrCreateDB();
+        }
 
+      })
+      .catch(e => console.log(e))
   }
 }
+
 
 const updateOrCreateDB = () => {
   axios
@@ -38,14 +40,13 @@ const updateOrCreateDB = () => {
         Wifi.collection.drop();
         info
           .save()
-          .then(res => {
-            console.log("Creado")
-          })
+          .then(res => {})
           .catch(err => {
             console.log(err);
           });
       });
-    });
-  }
+    })
+    .catch(e => console.log(e))
+}
 
 module.exports = syncDB

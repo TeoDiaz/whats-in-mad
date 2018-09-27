@@ -1,34 +1,44 @@
-// document.addEventListener(
-//   "DOMContentLoaded",
-//   () => {
-//     const map = new google.maps.Map(document.getElementById("map"), {
-//       zoom: 15
-//     });
-//     const setPosOnForm = latlng => {
-//       document.getElementById("lat-pos").value = latlng.lat;
-//       document.getElementById("lng-pos").value = latlng.lng;
-//     };
-//     let marker;
-//     map.addListener("click", function(e) {
-//       const clickPos = {
-//         lat: e.latLng.lat(),
-//         lng: e.latLng.lng()
-//       };
-//       marker.setPosition(clickPos);
-//       setPosOnForm(clickPos);
-//     });
+var geocoder;
+var map;
+var marker;
+let pos;
+function initialize() {
+  var map = new google.maps.Map(
+    document.getElementById("map"), {
+      center: new google.maps.LatLng(37.4419, -122.1419),
+      zoom: 13,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition( (position) => {
+        pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        new google.maps.Marker({
+          position: pos,
+          map: map
+        });
+        map.setCenter(pos);
+      })
+    }
+  google.maps.event.addListener(map, "click", function(e) {
 
+    latLng = e.latLng;
+    console.log(e.latLng.lat());
+    console.log(e.latLng.lng());
+    document.getElementById('lat-pos').value = e.latLng.lat();
+    document.getElementById('lng-pos').value = e.latLng.lng();
 
-//     geolocalize().then(center => {
-//       map.setCenter(center);
-//       marker = new google.maps.Marker({
-//         position: center,
-//         map: map
-//       });
-//       setPosOnForm(center);
-//     });
-    
-//   },
-
-//   false
-// );
+    console.log("Marker");
+    // if marker exists and has a .setMap method, hide it
+    if (marker && marker.setMap) {
+      marker.setMap(null);
+    }
+    marker = new google.maps.Marker({
+      position: latLng,
+      map: map
+    });
+  });
+}
+google.maps.event.addDomListener(window, "load", initialize)
