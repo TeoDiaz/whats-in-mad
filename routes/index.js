@@ -8,6 +8,10 @@ const syncDB = require("../public/javascripts/syncdb")
 
 /* GET home page */
 router.get("/", (req, res, next) => {
+  res.render("frontpage");
+ })
+
+router.get("/home", (req, res, next) => {
   Wifi.find().then(info=>{
   syncDB();
   res
