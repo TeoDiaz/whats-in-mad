@@ -6,15 +6,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   max-width: 100%; }
 
-#map {
+#map, #map-user {
   margin: 3% auto;
   height: 70%;
   width: 70%; }
-
-#map-user {
-  margin: 5% auto;
-  height: 400px;
-  width: 600px; }
 
 .navbar-brand a {
   color: #00b7ff; }
@@ -130,6 +125,9 @@ radio:required {
 
 .row2 {
   margin-bottom: 10px; }
+
+.row3 {
+  margin-left: 35%; }
 
 .ngl {
   position: absolute;

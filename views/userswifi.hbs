@@ -1,13 +1,17 @@
-<a href="/home">Volver a Maps Oficiales</a>
-<div>
-  <input type="text" placeholder="Radio de Busqueda">
-</div>
+<div class="index-back">  <form class="bar-circle">
+  <a href="/home">Volver a Maps Oficiales</a>
+      <p class="choose">Choose the size of the radius:</p>
+    <p class="range-field">
+      <input type="range" id="slide" min="500" max="5000" value="1000" />
+    </p>
+  </form>
+{{!-- <a href="/home">Volver a Maps Oficiales</a>
 <div>
   <input type="range" id="slide-user" min="500" max="5000" value="1000">
   <span  class="slider_label">1000</span>
-</div>
+</div> --}}
  <div id="map-user"></div>
-
+</div>
 <script>
   window.userwifi = {{{ userWifiStr }}}
 </script>
