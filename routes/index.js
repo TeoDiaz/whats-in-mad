@@ -35,7 +35,6 @@ router.get("/userswifi", ensureLoggedIn('/auth/login'), (req, res, next) => {
       user: req.user,
       userwifi,
       userWifiStr: JSON.stringify(userwifi)
-
     })
   }).catch(e => console.log(e))
 })
