@@ -6,9 +6,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
 
 #map {
-  margin: 5% auto;
-  height: 400px;
-  width: 600px; }
+  margin: 3% auto;
+  height: 70%;
+  width: 70%; }
 
 #map-user {
   margin: 5% auto;
@@ -25,26 +25,37 @@ body {
   width: 100vw;
   height: 100vh; }
 
+.index-back {
+  background-color: #c6c3c375;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
+
 .title {
   display: flex;
   justify-content: center;
   margin-top: 10%; }
 
+.img-logo img {
+  width: 40%;
+  margin-top: 21%;
+  margin-left: -17%; }
+
 .img-logo h1,
 h2 {
-  float: right;
-  color: white;
-  width: 30%;
-  margin-right: 33%;
-  margin-top: 2%;
-  text-align: center; }
+  color: black;
+  width: 56%;
+  margin-left: 30%;
+  margin-top: -31%;
+  text-align: center;
+  font-size: 2vw; }
 
 .connec {
   font-weight: bolder; }
 
 .click {
-  margin-left: 48%;
-  margin-top: -6%;
+  margin-left: 52%;
+  margin-top: 2%;
   position: absolute;
   font-size: 235%;
   text-decoration: none;
@@ -57,10 +68,6 @@ h2 {
   animation-play-state: paused;
   color: red; }
 
-.img-logo img {
-  width: 26%;
-  margin-left: 8%; }
-
 .wifi-symbol {
   display: none; }
   .wifi-symbol [foo], .wifi-symbol {
@@ -68,10 +75,10 @@ h2 {
     position: absolute;
     top: 50%;
     display: inline-block;
-    margin-left: 84%;
+    margin-left: 103%;
     width: 150px;
     height: 150px;
-    margin-top: -367.5px;
+    margin-top: -257.5px;
     -ms-transform: rotate(-45deg) translate(-100px);
     -moz-transform: rotate(-45deg) translate(-100px);
     -o-transform: rotate(-45deg) translate(-100px);
@@ -87,7 +94,7 @@ h2 {
     position: absolute;
     bottom: 0;
     left: 0;
-    border-color: white;
+    border-color: black;
     border-style: solid;
     border-width: 1em 1em 0 0;
     -webkit-border-radius: 0 100% 0 0;
@@ -116,7 +123,7 @@ h2 {
       width: 1em;
       height: 1em;
       opacity: 1;
-      background-color: white;
+      background-color: black;
       -o-animation: none;
       -moz-animation: none;
       -webkit-animation: none;
