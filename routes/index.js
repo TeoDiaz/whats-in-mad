@@ -5,6 +5,7 @@ const userWifi = require("../models/UserWifi");
 const axios = require("axios");
 const moment = require("moment");
 const syncDB = require("../public/javascripts/db/syncdb");
+const  {ensureLoggedIn} = require('../middlewares/secure-login');
 
 /* GET home page */
 router.get("/home", (req, res, next) => {
@@ -28,7 +29,7 @@ router.get("/", (req, res, next) => {
   res.render("frontpage", {layout: false});
 })
 
-router.get("/userwifi", (req, res, next) => {
+router.get("/userwifi", ensureLoggedIn('/auth/login'), (req, res, next) => {
   userWifi.find().then(userwifi => {
     res.render("userswifi", {
       user: req.user,
@@ -40,7 +41,7 @@ router.get("/userwifi", (req, res, next) => {
 })
 
 
-router.get("/new", (req, res, next) => {
+router.get("/new", ensureLoggedIn('/auth/login'), (req, res, next) => {
   res.render("new", {
     user: req.user
   });
