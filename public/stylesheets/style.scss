@@ -7,16 +7,24 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 #map {
-  margin: 5% auto;
-  height: 400px;
-  width: 600px;
+  margin: 3% auto;
+  height: 70%;
+  width: 70%;
 }
 .navbar-brand a {
   color: #00b7ff;
 }
+
 .front-back {
   background-image: url("../images/plazamayor.jpg");
   background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.index-back{
+  background-color:#c6c3c375;
   background-size: cover;
   width: 100vw;
   height: 100vh;
@@ -30,21 +38,21 @@ body {
 
 .img-logo img {
   width: 40%;
-    margin-top: 2%;
-    margin-left: -15%;
+  margin-top: 21%;
+  margin-left: -17%;
 }
 
 .img-logo h1,
 h2 {
-  color: white;
-    width: 56%;
-    margin-left: 30%;
-    margin-top: -37%;
-    text-align: center;
-    font-size: 2vw;
+  color: black;
+  width: 56%;
+  margin-left: 30%;
+  margin-top: -31%;
+  text-align: center;
+  font-size: 2vw;
 }
-.connec{
-font-weight: bolder;
+.connec {
+  font-weight: bolder;
 }
 
 .click {
@@ -64,9 +72,10 @@ font-weight: bolder;
 }
 
 
+
 .wifi-symbol {
   display: none;
-  $circleColor: white;
+  $circleColor: black;
   $size: 150px;
 
   [foo],
@@ -181,3 +190,7 @@ font-weight: bolder;
     opactiy: 0.1;
   }
 }
+
+
+
+

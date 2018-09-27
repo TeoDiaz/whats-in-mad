@@ -34,7 +34,6 @@ let input = document.addEventListener(
           var citymap = {
             madrid: {
               center: pos,
-              population: 3293000
             }
           };
           let circle;
@@ -43,7 +42,6 @@ let input = document.addEventListener(
           map.setCenter(pos);
           //dibuja circulo
           for (let city in citymap) {
-            // Add the circle for this city to the map.
             circle = new google.maps.Circle({
               strokeColor: "#FF0000",
               strokeOpacity: 0.8,
@@ -53,8 +51,6 @@ let input = document.addEventListener(
               map: map,
               center: citymap[city].center,
               radius: rad
-
-
             });
           }
           $("#slide").on("input change", function () {
