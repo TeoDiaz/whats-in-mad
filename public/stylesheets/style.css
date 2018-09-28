@@ -204,6 +204,13 @@ body {
   text-decoration: none;
   color: #ed6e73; }
 
+.new-error {
+  font-size: 23px;
+  margin-left: 47%;
+  position: absolute;
+  margin-top: -4%;
+  color: red; }
+
 .button-new {
   display: flex;
   flex-direction: column;

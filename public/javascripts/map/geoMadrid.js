@@ -4,7 +4,6 @@ document.addEventListener(
     let marker;
     let newMarkers = [];
 
-
     let map = new google.maps.Map(document.getElementById("map"), {
       center: {
         lat: -34.397,
@@ -13,12 +12,11 @@ document.addEventListener(
       zoom: 14
     });
 
-    
     let pos;
 
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        function (position) {
+        function(position) {
           pos = {
             lat: position.coords.latitude,
             lng: position.coords.longitude
@@ -36,7 +34,6 @@ document.addEventListener(
           let rad = $("#slide").val();
           rad = parseInt(rad);
           map.setCenter(pos);
-          //dibuja circulo
           for (let city in citymap) {
             circle = new google.maps.Circle({
               strokeColor: "#FF0000",
@@ -49,8 +46,8 @@ document.addEventListener(
               radius: rad
             });
           }
-           
-          $("#slide").on("input change", function () {
+
+          $("#slide").on("input change", function() {
             rad = parseInt(this.value);
             circle.setRadius(rad);
             $(this)
@@ -58,12 +55,11 @@ document.addEventListener(
               .html(this.value);
             removeMarkers();
             printInfoMarkers();
-            changeZoom()
-            infoW();
+            changeZoom();
+            
           });
 
           let printInfoMarkers = () => {
-
             info.forEach(item => {
               let itemPos = new google.maps.LatLng(
                 item.location.latitude,
@@ -85,38 +81,33 @@ document.addEventListener(
                   title: item.title,
                   icon: "../../images/wifired.png",
                   content: item.organization.schedule
-              });
-              newMarkers.push(marker);  
+                });
+                newMarkers.push(marker);
               }
-              
             });
           };
           printInfoMarkers();
-
-          
-         let infoW = () => {
-          for(let i =0;i<newMarkers.length;i++){
-            newMarkers[i].addEventListener
-            let infoWindow = new google.maps.InfoWindow({
-              map: map,
-              content: newMarkers[i].content,
-              maxWidth: 200,
- 
-            });
-
-            newMarkers[i].addListener("click", function(){
-              infoWindow.open(map,newMarkers[i])
-            }); 
-            google.maps.event.addListener(map,"click",function(){
-              if(infoWindow){
-                infoWindow.close()
-              }
-            })
-          }
          
-         }
-         infoW();
-              
+          let infoW = () => {
+            for (let i = 0; i < newMarkers.length; i++) {
+              let infoWindow = new google.maps.InfoWindow({
+                map: map,
+                content: newMarkers[i].content,
+                maxWidth: 200
+              });
+
+              newMarkers[i].addListener("click", function() {
+                infoWindow.open(map, newMarkers[i]);
+              });
+              google.maps.event.addListener(map, "click", function() {
+                if (infoWindow) {
+                  infoWindow.close();
+                }
+              });
+            }
+          };
+          infoW();
+
           let changeZoom = () => {
             if (rad > 500) {
               map.setZoom(15);
@@ -130,15 +121,15 @@ document.addEventListener(
             if (circle.radius > 2500) {
               map.setZoom(12);
             }
-          }
+            
+          };
           let removeMarkers = () => {
             for (let i = 0; i < newMarkers.length; i++) {
               newMarkers[i].setMap(null);
             }
           };
-
         },
-        function () {
+        function() {
           handleLocationError(true, infoWindow, map.getCenter());
         }
       );
@@ -146,8 +137,6 @@ document.addEventListener(
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
-    
-
   },
   false
 );

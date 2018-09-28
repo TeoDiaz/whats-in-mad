@@ -48,7 +48,7 @@ router.get("/new", ensureLoggedIn('/auth/login'), (req, res, next) => {
 
 router.post("/new", (req, res, next) => {
   if(req.body.latitude=="" || req.body.longitude==""){
-    res.render("new", {error: "Debe seleccionar un punto en el mapa"} )
+    res.render("new", {user: req.user, error: "Debe seleccionar un punto en el mapa"} )
   }
 
   let newWifi = {
