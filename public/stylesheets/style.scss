@@ -138,8 +138,15 @@ img {
 .right-row {
   width: 37%;
   position: absolute;
-  margin-top: -145%;
-  margin-left: 168%;
+  margin-top: -168%;
+  margin-left: 173%;
+}
+
+.left-row {
+  width: 37%;
+  position: absolute;
+  margin-top: -168%;
+  margin-left: -116%;
 }
 .naviga {
   position: absolute;
@@ -158,9 +165,4 @@ img {
   margin-top: 35%;
 }
 
-.left-row {
-  width: 37%;
-  position: absolute;
-  margin-top: -155%;
-  margin-left: -116%;
-}
+
