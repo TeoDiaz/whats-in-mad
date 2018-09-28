@@ -1,83 +1,3 @@
-* {
-  margin: 0;
-  padding: 0; }
-
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  max-width: 100%; }
-
-#map {
-  margin: 3% auto;
-  height: 70%;
-  width: 70%; }
-
-#map-user {
-  margin: 3% auto;
-  height: 555px;
-  width: 1220px; }
-
-#new-input {
-  width: 20%;
-  margin-left: 17%; }
-
-.a-users {
-  margin-left: -15%;
-  text-decoration: none;
-  color: #ed6e73; }
-
-.button-new {
-  display: flex;
-  flex-direction: column;
-  width: 5%;
-  margin-left: 17%;
-  text-align: center; }
-
-.navbar-brand a {
-  color: #00b7ff; }
-
-.front-back {
-  background-image: url("../images/plazamayor.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh; }
-
-.index-back {
-  background-color: #c6c3c375;
-  background-size: cover;
-  width: 100vw;
-  height: 100vh; }
-
-.title {
-  display: flex;
-  justify-content: center;
-  margin-top: 10%; }
-
-.img-logo img {
-  width: 37%;
-  margin-top: 21%;
-  margin-left: -17%; }
-
-.img-logo h1,
-h2 {
-  color: black;
-  width: 56%;
-  margin-left: 30%;
-  margin-top: -25%;
-  text-align: center;
-  font-size: 2vw; }
-
-.connec {
-  font-weight: bolder; }
-
-.card-panel {
-  height: 70vh; }
-
-.row-first {
-  width: 28%;
-  margin-top: 4%;
-  animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards; }
-
 .click {
   margin-left: 35%;
   margin-top: 2%;
@@ -92,70 +12,6 @@ h2 {
   text-decoration: none;
   animation-play-state: paused;
   color: red; }
-
-img {
-  width: 50%; }
-
-.img-signup {
-  width: 40%;
-  margin-left: 28%; }
-
-.logo-login {
-  width: 20%;
-  margin-top: 32%;
-  margin-left: 27%; }
-
-.choose {
-  text-align: center;
-  font-size: 30px;
-  padding-bottom: 10px; }
-
-.bar-circle {
-  padding-top: 1%;
-  width: 70%;
-  margin-left: 15%; }
-
-h3 {
-  text-align: center; }
-
-.container2 {
-  background: white;
-  padding: 20px 25px;
-  width: 550px;
-  height: auto;
-  box-sizing: border-box;
-  position: relative;
-  margin-left: 35%;
-  margin-top: 4%; }
-
-.col.s6 > .btn {
-  width: 100%; }
-
-radio:required {
-  border-color: red; }
-
-.container2 {
-  animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards; }
-
-@keyframes showUp {
-  0% {
-    transform: scale(0); }
-  100% {
-    transoform: scale(1); } }
-
-.row2 {
-  margin-bottom: 10px; }
-
-.row3 {
-  margin-left: 35%; }
-
-.ngl {
-  position: absolute;
-  top: -20px;
-  right: -20px; }
-
-.cyan {
-  background-color: #00bfd46e !important; }
 
 .wifi-symbol {
   display: none; }
@@ -247,5 +103,152 @@ radio:required {
     opactiy: 0.1; }
   100% {
     opactiy: 0.1; } }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 100%; }
+
+#map {
+  margin: 1% auto;
+  height: 70%;
+  width: 70%; }
+
+#map-user {
+  margin: 1% auto;
+  height: 555px;
+  width: 1220px; }
+
+#new-input {
+  width: 20%;
+  margin-left: 17%; }
+
+.a-users {
+  margin-left: -15%;
+  text-decoration: none;
+  color: #ed6e73; }
+
+.button-new {
+  display: flex;
+  flex-direction: column;
+  width: 5%;
+  margin-left: 17%;
+  text-align: center; }
+
+.navbar-brand a {
+  color: #00b7ff; }
+
+.text-ul li a {
+  font-size: 20px; }
+
+.front-back {
+  background-image: url("../images/plazamayor.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
+
+.index-back {
+  background-color: #c6c3c375;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh; }
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 10%; }
+
+.img-logo img {
+  width: 37%;
+  margin-top: 21%;
+  margin-left: -17%; }
+
+.img-logo h1,
+h2 {
+  color: black;
+  width: 56%;
+  margin-left: 30%;
+  margin-top: -25%;
+  text-align: center;
+  font-size: 2vw; }
+
+.connec {
+  font-weight: bolder; }
+
+.card-panel {
+  height: 70vh; }
+
+.row-first {
+  width: 28%;
+  margin-top: 4%;
+  animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards; }
+
+img {
+  width: 50%; }
+
+.img-signup {
+  width: 40%;
+  margin-left: 28%; }
+
+.logo-login {
+  width: 3.5%;
+  margin-top: 0.2%;
+  margin-left: 67%; }
+
+.choose {
+  text-align: center;
+  font-size: 30px;
+  padding-bottom: 10px; }
+
+.bar-circle {
+  padding-top: 1%;
+  width: 70%;
+  margin-left: 15%; }
+
+h3 {
+  text-align: center; }
+
+.container2 {
+  background: white;
+  padding: 20px 25px;
+  width: 550px;
+  height: auto;
+  box-sizing: border-box;
+  position: relative;
+  margin-left: 35%;
+  margin-top: 4%; }
+
+.col.s6 > .btn {
+  width: 100%; }
+
+radio:required {
+  border-color: red; }
+
+.container2 {
+  animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards; }
+
+@keyframes showUp {
+  0% {
+    transform: scale(0); }
+  100% {
+    transoform: scale(1); } }
+
+.row2 {
+  margin-bottom: 10px; }
+
+.row3 {
+  margin-left: 35%; }
+
+.ngl {
+  position: absolute;
+  top: -20px;
+  right: -20px; }
+
+.cyan {
+  background-color: #00bfd46e !important; }
 
 /*# sourceMappingURL=style.css.map */
