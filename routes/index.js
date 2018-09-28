@@ -47,6 +47,10 @@ router.get("/new", ensureLoggedIn('/auth/login'), (req, res, next) => {
 });
 
 router.post("/new", (req, res, next) => {
+  if(req.body.latitude=="" || req.body.longitude==""){
+    res.render("new", {error: "Debe seleccionar un punto en el mapa"} )
+  }
+
   let newWifi = {
     title: req.body.name,
     by: req.user.username,
@@ -55,9 +59,10 @@ router.post("/new", (req, res, next) => {
       longitude: req.body.longitude
     }
   }
+  
   userWifi.create(newWifi)
     .then(()=> {
-        res.redirect("/home");
+        res.redirect("/userswifi");
       })
       .catch(e => console.log(e));
     
