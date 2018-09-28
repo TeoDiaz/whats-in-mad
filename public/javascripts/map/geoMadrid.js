@@ -13,9 +13,7 @@ document.addEventListener(
       zoom: 14
     });
 
-    let infoWindow = new google.maps.InfoWindow({
-      map: map
-    });
+    
     let pos;
 
     if (navigator.geolocation) {
@@ -51,6 +49,7 @@ document.addEventListener(
               radius: rad
             });
           }
+           
           $("#slide").on("input change", function () {
             rad = parseInt(this.value);
             circle.setRadius(rad);
@@ -60,6 +59,7 @@ document.addEventListener(
             removeMarkers();
             printInfoMarkers();
             changeZoom()
+            infoW();
           });
 
           let printInfoMarkers = () => {
@@ -83,13 +83,40 @@ document.addEventListener(
                   },
                   map: map,
                   title: item.title,
-                  icon: "../../images/wifired.png"
-                });
-                newMarkers.push(marker);
+                  icon: "../../images/wifired.png",
+                  content: item.organization.schedule
+              });
+              newMarkers.push(marker);  
               }
+              
             });
           };
           printInfoMarkers();
+
+          
+         let infoW = () => {
+          for(let i =0;i<newMarkers.length;i++){
+            newMarkers[i].addEventListener
+            let infoWindow = new google.maps.InfoWindow({
+              map: map,
+              content: newMarkers[i].content,
+              maxWidth: 200,
+ 
+            });
+
+            newMarkers[i].addListener("click", function(){
+              infoWindow.open(map,newMarkers[i])
+            }); 
+            google.maps.event.addListener(map,"click",function(){
+              if(infoWindow){
+                infoWindow.close()
+              }
+            })
+          }
+         
+         }
+         infoW();
+              
           let changeZoom = () => {
             if (rad > 500) {
               map.setZoom(15);
@@ -119,8 +146,7 @@ document.addEventListener(
       // Browser doesn't support Geolocation
       handleLocationError(false, infoWindow, map.getCenter());
     }
-
-
+    
 
   },
   false
