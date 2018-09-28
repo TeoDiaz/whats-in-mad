@@ -86,7 +86,7 @@ document.addEventListener(
                   },
                   map: mapUser,
                   title: `${item.title} - ${item.by}`,
-                  icon: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+                  icon: "../../images/wifiazul.png"
                 });
                 newUserMarkers.push(userMarker);
               }

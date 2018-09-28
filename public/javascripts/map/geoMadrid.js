@@ -82,7 +82,8 @@ document.addEventListener(
                     lng: item.location.longitude
                   },
                   map: map,
-                  title: item.title
+                  title: item.title,
+                  icon: "../../images/wifired.png"
                 });
                 newMarkers.push(marker);
               }
