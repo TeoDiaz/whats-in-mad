@@ -1,12 +1,12 @@
-
 h3 {
   text-align: center;
 }
 
 .logo-login {
   width: 3.5%;
-  margin-top: 0.2%;
-  margin-left: 67%;
+  margin-top: -3.3%;
+  margin-left: 94%;
+  position: absolute;
 }
 
 .card-panel {
@@ -20,19 +20,19 @@ h3 {
 
 .row-first {
   width: 28%;
-  margin-top: 4%;
+  margin-top: 2%;
   animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards;
 }
 
 .container2 {
   background: white;
-  padding: 20px 25px;
+  padding: 1px 25px;
   width: 550px;
   height: auto;
   box-sizing: border-box;
   position: relative;
   margin-left: 35%;
-  margin-top: 4%;
+  margin-top: 3%;
 }
 .col.s6 > .btn {
   width: 100%;
@@ -44,11 +44,11 @@ radio:required {
   animation: showUp 0.5s cubic-bezier(0.18, 1.3, 1, 1) forwards;
 }
 
-.cyan{
-  background-color: white !important
+.cyan {
+  background-color: white !important;
 }
 
-.log-in{
+.log-in {
   width: 37%;
   margin-left: 32%;
 }
@@ -61,9 +61,7 @@ radio:required {
     transoform: scale(1);
   }
 }
-.row2 {
-  margin-bottom: 10px;
-}
+
 .row3 {
   margin-left: 35%;
 }
@@ -72,4 +70,3 @@ radio:required {
   top: -20px;
   right: -20px;
 }
-
