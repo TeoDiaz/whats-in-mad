@@ -175,6 +175,10 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   max-width: 100%; }
 
+.page-footer {
+  padding: 15px;
+  width: 100%; }
+
 #map {
   margin: 1% auto;
   height: 70%;
@@ -184,6 +188,13 @@ body {
   margin: 1% auto;
   height: 555px;
   width: 1220px; }
+
+#span-footer {
+  font-size: 20px; }
+
+#span-footer > a {
+  color: white;
+  border-bottom: 2px solid white; }
 
 #new-input {
   width: 20%;
