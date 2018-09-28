@@ -105,7 +105,8 @@
     opactiy: 0.1; } }
 
 h3 {
-  text-align: center; }
+  text-align: center;
+  color: #747373; }
 
 .logo-login {
   width: 3.5%;
@@ -211,6 +212,11 @@ body {
   margin-top: -4%;
   color: red; }
 
+.new-error i {
+  margin-left: 14px;
+  position: absolute;
+  margin-top: -3px; }
+
 .button-new {
   display: flex;
   flex-direction: column;
@@ -232,10 +238,12 @@ body {
   height: 100vh; }
 
 .index-back {
-  background-color: #c6c3c375;
-  background-size: cover;
-  width: 100vw;
   height: 100vh; }
+
+h3 i {
+  margin-left: 22px;
+  position: absolute;
+  margin-top: -13px; }
 
 .title {
   display: flex;
@@ -265,11 +273,44 @@ img {
 .choose {
   text-align: center;
   font-size: 30px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+  color: #ff961e; }
 
 .bar-circle {
   padding-top: 1%;
   width: 70%;
   margin-left: 15%; }
+
+.row2 div p {
+  font-size: 35px;
+  text-align: center;
+  color: cadetblue;
+  margin-left: -15px; }
+
+.right-row {
+  width: 37%;
+  position: absolute;
+  margin-top: -145%;
+  margin-left: 168%; }
+
+.naviga {
+  position: absolute;
+  margin-left: 19%;
+  margin-top: 24%; }
+
+.map {
+  position: absolute;
+  margin-left: 19%;
+  margin-top: 84%; }
+
+.check {
+  margin-right: 28%;
+  margin-top: 35%; }
+
+.left-row {
+  width: 37%;
+  position: absolute;
+  margin-top: -155%;
+  margin-left: -116%; }
 
 /*# sourceMappingURL=style.css.map */

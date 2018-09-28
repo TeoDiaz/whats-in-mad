@@ -1,5 +1,5 @@
 @import "wifilogo.scss";
-@import"login.scss";
+@import "login.scss";
 
 * {
   margin: 0;
@@ -43,12 +43,18 @@ body {
   color: #ed6e73;
 }
 
-.new-error{
+.new-error {
   font-size: 23px;
   margin-left: 47%;
   position: absolute;
   margin-top: -4%;
   color: red;
+}
+
+.new-error i {
+  margin-left: 14px;
+  position: absolute;
+  margin-top: -3px;
 }
 .button-new {
   display: flex;
@@ -62,9 +68,9 @@ body {
   color: #00b7ff;
 }
 
-.text-ul li a{
+.text-ul li a {
   font-size: 20px;
-} 
+}
 
 .front-back {
   background-image: url("../images/plazamayor.jpg");
@@ -75,12 +81,13 @@ body {
 }
 
 .index-back {
-  background-color: #c6c3c375;
-  background-size: cover;
-  width: 100vw;
   height: 100vh;
 }
-
+h3 i {
+  margin-left: 22px;
+  position: absolute;
+  margin-top: -13px;
+}
 .title {
   display: flex;
   justify-content: center;
@@ -110,11 +117,11 @@ img {
   width: 50%;
 }
 
-
 .choose {
   text-align: center;
   font-size: 30px;
   padding-bottom: 10px;
+  color: #ff961e;
 }
 
 .bar-circle {
@@ -122,4 +129,38 @@ img {
   width: 70%;
   margin-left: 15%;
 }
+.row2 div p {
+  font-size: 35px;
+  text-align: center;
+  color: cadetblue;
+  margin-left: -15px;
+}
+.right-row {
+  width: 37%;
+  position: absolute;
+  margin-top: -145%;
+  margin-left: 168%;
+}
+.naviga {
+  position: absolute;
+  margin-left: 19%;
+  margin-top: 24%;
+}
 
+.map {
+  position: absolute;
+  margin-left: 19%;
+  margin-top: 84%;
+}
+
+.check {
+  margin-right: 28%;
+  margin-top: 35%;
+}
+
+.left-row {
+  width: 37%;
+  position: absolute;
+  margin-top: -155%;
+  margin-left: -116%;
+}

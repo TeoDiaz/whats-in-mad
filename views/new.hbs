@@ -8,8 +8,9 @@
     <input type="hidden" id="lng-pos"  name="longitude" required>
     <input class="btn btn-primary button-new" type="submit" value="Add Wifi">
   </form>
-  <p class="new-error">{{error}}</p>
-
+  {{#if error}}
+  <p class="new-error">{{error}}<i class="small material-icons">backspace</i></p>
+{{/if}}
   <div id="map-user"></div>
 </div>
 <script src="/javascripts/map/markers.js"></script>
