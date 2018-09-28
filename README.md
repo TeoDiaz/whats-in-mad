@@ -14,9 +14,9 @@ JavaScript (Base)
 Mongoose  
 Axios/Ajax    
 Materialize   
-jQuery
-Gmaps API
-datos.madrid.es API  
+jQuery  
+Gmaps API  
+datos.madrid.es API   
 Express  
 Passport  
 
